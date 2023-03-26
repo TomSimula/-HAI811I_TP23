@@ -1,10 +1,11 @@
 package com.example.tp3v2
 
-import android.app.DownloadManager
+
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Environment
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
-import androidx.core.net.toUri
+import androidx.core.app.ActivityCompat
 
 class InscriptionFragment : Fragment(), OnClickListener {
 
@@ -51,33 +52,8 @@ class InscriptionFragment : Fragment(), OnClickListener {
         var view = inflater.inflate(R.layout.fragment_inscription, container, false)
 
         view.findViewById<Button>(R.id.mainPageButtonValidate).setOnClickListener(this)
-        view.findViewById<Button>(R.id.mainPageButtonDownload).setOnClickListener {
-
-            var connectionManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
-            var networkInfo = connectionManager.activeNetwork
-            if(networkInfo != null) {
-                var url = "https://lafertemace.fr/liste-jeux.pdf"
-                var downloadManager = requireContext().getSystemService(DownloadManager::class.java)
-                var request = DownloadManager.Request(url.toUri())
-                    .setMimeType("application/pdf")
-                    .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
-                    .setTitle("liste-jeux.pdf")
-                    .setDescription("Downloading file...")
-                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "liste-jeux.pdf")
-                downloadManager.enqueue(request)
-                //notify user when download is completed
-                var receiver = object : android.content.BroadcastReceiver() {
-                    override fun onReceive(context: Context?, intent: Intent?) {
-                        android.widget.Toast.makeText(requireContext(), "Download completed", android.widget.Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-            } else {
-                android.widget.Toast.makeText(requireContext(), "Network is not available", android.widget.Toast.LENGTH_SHORT).show()
-            }
-
-        }
+        view.findViewById<Button>(R.id.mainPageButtonDownload).setOnClickListener(this)
+            // ask for permission to donwload
 
         return view
     }
@@ -92,6 +68,28 @@ class InscriptionFragment : Fragment(), OnClickListener {
     }
 
     override fun onClick(p0: View?) {
+        when (p0?.id) {
+            R.id.mainPageButtonValidate -> {
+                submit()
+            }
+            R.id.mainPageButtonDownload -> {
+                if (ActivityCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
+                    return
+                }
+                Intent(requireContext(), DownloadService::class.java).also { intent -> context?.startService(intent) }
+            }
+        }
+    }
+
+    private fun submit() {
         if(nom == "") {
             nom = (view?.findViewById<View>(R.id.mainPageEditTextFirstName) as TextView).text.toString()
         }
