@@ -3,8 +3,6 @@ package com.example.tp3v2
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import java.io.File
 
 class MainActivity : AppCompatActivity(), SyntheseFragment.OnValidateListener, InscriptionFragment.OnSubmitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +10,7 @@ class MainActivity : AppCompatActivity(), SyntheseFragment.OnValidateListener, I
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, InscriptionFragment())
+            replace(R.id.mainActivityFrameLayoutFrangment, InscriptionFragment())
             commit()
         }
     }
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity(), SyntheseFragment.OnValidateListener, I
         syntheseFragment.arguments = bundle
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, syntheseFragment)
+            replace(R.id.mainActivityFrameLayoutFrangment, syntheseFragment)
             setReorderingAllowed(true)
             addToBackStack(null)
             commit()

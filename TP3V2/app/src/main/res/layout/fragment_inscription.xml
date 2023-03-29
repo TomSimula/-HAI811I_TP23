@@ -7,124 +7,123 @@
     tools:context=".InscriptionFragment">
 
     <TextView
-        android:id="@+id/mainPageTextViewLastName"
+        android:id="@+id/inscrFragTextViewLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/frag_inscr_last_name"
+        android:text="@string/frag_last_name"
         android:textSize="@dimen/default_textSize"
-        app:layout_constraintBottom_toBottomOf="@+id/mainPageEditTextLastName"
+        app:layout_constraintBottom_toBottomOf="@+id/inscrFragEditTextLastName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mainPageEditTextLastName" />
+        app:layout_constraintTop_toTopOf="@+id/inscrFragEditTextLastName" />
 
     <EditText
-        android:id="@+id/mainPageEditTextLastName"
+        android:id="@+id/inscrFragEditTextLastName"
         android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:hint="Simula"
-        app:layout_constraintStart_toEndOf="@+id/mainPageTextViewLastName"
+        app:layout_constraintStart_toEndOf="@+id/inscrFragTextViewLastName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/mainPageTextViewFirstName"
+        android:id="@+id/inscrFragTextViewFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/frag_inscr_first_name"
+        android:text="@string/frag_first_name"
         android:textSize="@dimen/default_textSize"
-        app:layout_constraintBottom_toBottomOf="@+id/mainPageEditTextFirstName"
+        app:layout_constraintBottom_toBottomOf="@+id/inscrFragEditTextFirstName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mainPageEditTextFirstName" />
+        app:layout_constraintTop_toTopOf="@+id/inscrFragEditTextFirstName" />
 
     <EditText
-        android:id="@+id/mainPageEditTextFirstName"
+        android:id="@+id/inscrFragEditTextFirstName"
         android:layout_width="356dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
         android:hint="Tom"
-        app:layout_constraintStart_toEndOf="@+id/mainPageTextViewFirstName"
-        app:layout_constraintTop_toBottomOf="@+id/mainPageEditTextLastName" />
+        app:layout_constraintStart_toEndOf="@+id/inscrFragTextViewFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragEditTextLastName" />
 
     <TextView
-        android:id="@+id/mainPageTextViewAge"
+        android:id="@+id/inscrFragTextViewBirthday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/frag_inscr_birthday"
+        android:text="@string/frag_birthday"
         android:textSize="@dimen/default_textSize"
-        app:layout_constraintBottom_toBottomOf="@+id/mainPageEditTextAge"
+        app:layout_constraintBottom_toBottomOf="@+id/inscrFragEditTextBirthday"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mainPageEditTextAge" />
+        app:layout_constraintTop_toTopOf="@+id/inscrFragEditTextBirthday" />
 
     <EditText
-        android:id="@+id/mainPageEditTextAge"
+        android:id="@+id/inscrFragEditTextBirthday"
         android:layout_width="291dp"
         android:layout_height="wrap_content"
         android:hint="@string/frag_inscr_birthday_hint"
         android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintStart_toEndOf="@+id/mainPageTextViewAge"
-        app:layout_constraintTop_toBottomOf="@+id/mainPageEditTextFirstName" />
+        app:layout_constraintStart_toEndOf="@+id/inscrFragTextViewBirthday"
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragEditTextFirstName" />
 
     <TextView
-        android:id="@+id/mainPageTextViewJob"
+        android:id="@+id/inscrFragTextViewJob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/frag_inscr_job"
+        android:text="@string/frag_job"
         android:textSize="@dimen/default_textSize"
-        app:layout_constraintBottom_toBottomOf="@+id/mainPageEditTextSkillField"
+        app:layout_constraintBottom_toBottomOf="@+id/inscrFragEditTextSkillField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mainPageEditTextSkillField" />
+        app:layout_constraintTop_toTopOf="@+id/inscrFragEditTextSkillField" />
 
     <EditText
-        android:id="@+id/mainPageEditTextSkillField"
+        android:id="@+id/inscrFragEditTextSkillField"
         android:layout_width="364dp"
         android:layout_height="wrap_content"
-        android:hint="@string/frag_inscr_job_hint"
+        android:hint="@string/frag_job_hint"
         android:layout_marginTop="@dimen/default_margin"
 
-        app:layout_constraintStart_toEndOf="@+id/mainPageTextViewJob"
-        app:layout_constraintTop_toBottomOf="@+id/mainPageEditTextAge" />
+        app:layout_constraintStart_toEndOf="@+id/inscrFragTextViewJob"
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragEditTextBirthday" />
 
     <TextView
-        android:id="@+id/mainPageTextViewPhone"
+        android:id="@+id/inscrFragTextViewPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/frag_inscr_phone"
+        android:text="@string/frag_phone"
         android:textSize="@dimen/default_textSize"
-        app:layout_constraintBottom_toBottomOf="@+id/mainPageEditTextPhone"
+        app:layout_constraintBottom_toBottomOf="@+id/inscrFragEditTextPhone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mainPageEditTextPhone" />
+        app:layout_constraintTop_toTopOf="@+id/inscrFragEditTextPhone" />
 
     <EditText
-        android:id="@+id/mainPageEditTextPhone"
+        android:id="@+id/inscrFragEditTextPhone"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:hint="XX XX XX XX XX"
         android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintStart_toEndOf="@+id/mainPageTextViewPhone"
-        app:layout_constraintTop_toBottomOf="@+id/mainPageEditTextSkillField" />
+        app:layout_constraintStart_toEndOf="@+id/inscrFragTextViewPhone"
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragEditTextSkillField" />
 
     <GridLayout
-        android:id="@+id/inscrFragCLInteret"
+        android:id="@+id/inscrFragGridLayoutInterest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
         android:columnCount="2"
         android:rowCount="3"
-        app:layout_constraintTop_toBottomOf="@+id/mainPageEditTextPhone"
-        app:layout_constraintBottom_toTopOf="@+id/inscrFragSyncCheck">
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragEditTextPhone"
+        app:layout_constraintBottom_toTopOf="@+id/inscrFragCheckboxSync">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/frag_inscr_interest"
+            android:text="@string/frag_interest"
             android:textSize="@dimen/default_textSize"
             android:layout_column="0"
             android:layout_row="0"
             ></TextView>
 
         <CheckBox
-            android:id="@+id/checkbox_sport"
+            android:id="@+id/inscrFragCheckboxSport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
             android:layout_margin="10dp"
             android:layout_marginRight="100dp"
             android:layout_column="0"
@@ -133,10 +132,9 @@
             android:text="Sport"></CheckBox>
 
         <CheckBox
-            android:id="@+id/checkbox_musique"
+            android:id="@+id/inscrFragCheckboxMusique"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
             android:layout_margin="10dp"
             android:layout_column="1"
             android:layout_row="1"
@@ -144,10 +142,9 @@
             android:text="Music"></CheckBox>
 
         <CheckBox
-            android:id="@+id/checkbox_lecture"
+            android:id="@+id/inscrFragCheckboxLecture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
             android:layout_margin="10dp"
             android:layout_marginRight="100dp"
             android:layout_column="0"
@@ -156,10 +153,9 @@
             android:textSize="15dp"></CheckBox>
 
         <CheckBox
-            android:id="@+id/checkbox_serie"
+            android:id="@+id/inscrFragCheckboxSerie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
             android:layout_margin="10dp"
             android:layout_column="1"
             android:layout_row="2"
@@ -169,7 +165,7 @@
     </GridLayout>
 
     <CheckBox
-        android:id="@+id/inscrFragSyncCheck"
+        android:id="@+id/inscrFragCheckboxSync"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
@@ -177,26 +173,26 @@
         android:text="Synchronisées"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inscrFragCLInteret">
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragGridLayoutInterest">
     </CheckBox>
 
     <Button
-        android:id="@+id/mainPageButtonValidate"
+        android:id="@+id/inscrFragButtonsubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/frag_inscr_submit_button"
+        android:text="@string/frag_submit_button"
         android:layout_marginTop="@dimen/default_margin"
-        app:layout_constraintEnd_toStartOf="@id/mainPageButtonDownload"
+        app:layout_constraintEnd_toStartOf="@id/inscrFragButtonDownload"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inscrFragSyncCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragCheckboxSync" />
 
     <Button
-        android:id="@+id/mainPageButtonDownload"
+        android:id="@+id/inscrFragButtonDownload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/frag_inscr_download_button"
+        android:text="@string/download_button"
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/mainPageButtonValidate"
-        app:layout_constraintTop_toBottomOf="@+id/inscrFragSyncCheck" />
+        app:layout_constraintStart_toEndOf="@id/inscrFragButtonsubmit"
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragCheckboxSync" />
 </androidx.constraintlayout.widget.ConstraintLayout>

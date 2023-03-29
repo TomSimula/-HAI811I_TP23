@@ -1,62 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SyntheseFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:id="@+id/infos">
-
-        <TextView
-            android:id="@+id/s_prenom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/s_nom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/s_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/s_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
+        <GridLayout
+            android:id="@+id/inscrFragGridLayoutInterest"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/interests"
-            android:orientation="vertical" />
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttons">
+                <TextView
+                    android:id="@+id/synthFragTextViewSynth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_synth_synth"
+                    android:textSize="@dimen/subtitle_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="0"
+                    android:layout_row="0"/>
 
-            <Button
-                android:id="@+id/validate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/valider" />
+                <TextView
+                    android:id="@+id/synthFragTextViewLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_last_name"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="0"
+                    android:layout_row="1"/>
 
-            <Button
-                android:id="@+id/info_return"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/return_button" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/synthFragTextViewLastNameRes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="1"
+                    android:layout_row="1"/>
 
+                <TextView
+                    android:id="@+id/synthFragTextViewFirstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_first_name"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="0"
+                    android:layout_row="2"/>
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/synthFragTextViewFirstNameRes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="1"
+                    android:layout_row="2"/>
 
-</FrameLayout>
+                <TextView
+                    android:id="@+id/synthFragTextViewBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_birthday"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="0"
+                    android:layout_row="3"/>
+
+                <TextView
+                    android:id="@+id/synthFragTextViewBirthdayRes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="1"
+                    android:layout_row="3"/>
+
+                <TextView
+                    android:id="@+id/synthFragTextViewJob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_job"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="0"
+                    android:layout_row="4"/>
+
+                <TextView
+                    android:id="@+id/synthFragTextViewJobRes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="1"
+                    android:layout_row="4"/>
+
+                <TextView
+                    android:id="@+id/synthFragTextViewPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frag_birthday"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="0"
+                    android:layout_row="5"/>
+
+                <TextView
+                    android:id="@+id/synthFragTextViewPhoneRes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="1"
+                    android:layout_row="5"/>
+
+                <TextView
+                    android:id="@+id/synthFragTextViewInterest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="6"
+                    android:layout_column="0"
+                    android:layout_margin="10dp"
+                    android:text="@string/frag_interest"
+                    android:textSize="@dimen/default_textSize" />
+
+                <TextView
+                    android:id="@+id/synthFragTextViewInterestRes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_margin="10dp"
+                    android:layout_column="1"
+                    android:layout_row="6"/>
+
+                <Button
+                    android:id="@+id/synthFragButtonValidate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="7"
+                    android:layout_column="0"
+                    android:text="@string/validate_button"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <Button
+                    android:id="@+id/synthFragButtonReturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="7"
+                    android:layout_column="1"
+                    android:text="@string/return_button"
+                    android:textSize="@dimen/default_textSize"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"/>
+
+        </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

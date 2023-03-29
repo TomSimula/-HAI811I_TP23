@@ -51,8 +51,8 @@ class InscriptionFragment : Fragment(), OnClickListener {
     ): View? {
         var view = inflater.inflate(R.layout.fragment_inscription, container, false)
 
-        view.findViewById<Button>(R.id.mainPageButtonValidate).setOnClickListener(this)
-        view.findViewById<Button>(R.id.mainPageButtonDownload).setOnClickListener(this)
+        view.findViewById<Button>(R.id.inscrFragButtonsubmit).setOnClickListener(this)
+        view.findViewById<Button>(R.id.inscrFragButtonDownload).setOnClickListener(this)
             // ask for permission to donwload
 
         return view
@@ -69,10 +69,10 @@ class InscriptionFragment : Fragment(), OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0?.id) {
-            R.id.mainPageButtonValidate -> {
+            R.id.inscrFragButtonsubmit -> {
                 submit()
             }
-            R.id.mainPageButtonDownload -> {
+            R.id.inscrFragButtonDownload -> {
                 if (ActivityCompat.checkSelfPermission(
                         requireContext(),
                         Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -91,27 +91,27 @@ class InscriptionFragment : Fragment(), OnClickListener {
 
     private fun submit() {
         if(nom == "") {
-            nom = (view?.findViewById<View>(R.id.mainPageEditTextFirstName) as TextView).text.toString()
+            nom = (view?.findViewById<View>(R.id.inscrFragEditTextFirstName) as TextView).text.toString()
         }
         if(prenom == "") {
-            prenom = (view?.findViewById<View>(R.id.mainPageEditTextLastName) as TextView).text.toString()
+            prenom = (view?.findViewById<View>(R.id.inscrFragEditTextLastName) as TextView).text.toString()
         }
         if(interests.isEmpty()) {
-            if ((view?.findViewById<View>(R.id.checkbox_sport) as CheckBox).isChecked) {
+            if ((view?.findViewById<View>(R.id.inscrFragCheckboxSport) as CheckBox).isChecked) {
                 interests.add("Sport")
             }
-            if ((requireView().findViewById<View>(R.id.checkbox_musique) as CheckBox).isChecked) {
+            if ((requireView().findViewById<View>(R.id.inscrFragCheckboxMusique) as CheckBox).isChecked) {
                 interests.add("Cinema")
             }
-            if ((requireView().findViewById<View>(R.id.checkbox_lecture) as CheckBox).isChecked) {
+            if ((requireView().findViewById<View>(R.id.inscrFragCheckboxLecture) as CheckBox).isChecked) {
                 interests.add("Musique")
             }
-            if ((requireView().findViewById<View>(R.id.checkbox_serie) as CheckBox).isChecked) {
+            if ((requireView().findViewById<View>(R.id.inscrFragCheckboxSerie) as CheckBox).isChecked) {
                 interests.add("Jeux vidéo")
             }
         }
 
-        option = (view?.findViewById<View>(R.id.inscrFragSyncCheck) as CheckBox).isChecked
+        option = (view?.findViewById<View>(R.id.inscrFragCheckboxSync) as CheckBox).isChecked
 
         listener.onSubmit(nom, prenom, interests, option)
     }

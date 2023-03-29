@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
 
 class SyntheseFragment : Fragment() {
@@ -32,26 +31,22 @@ class SyntheseFragment : Fragment() {
         val interests = arguments?.getStringArrayList("interests")
         val option = arguments?.getBoolean("option")
 
-        var nomView = view?.findViewById<TextView>(R.id.s_nom)
-        var prenomView = view?.findViewById<TextView>(R.id.s_prenom)
+        var nomView = view?.findViewById<TextView>(R.id.synthFragTextViewLastNameRes)
+        var prenomView = view?.findViewById<TextView>(R.id.synthFragTextViewFirstNameRes)
 
         nomView?.text = nom
         prenomView?.text = prenom
 
+        var sInterests = ""
         for(interest in interests!!) {
-            val interest_view = TextView(requireContext())
-            interest_view.text = interest
-            interest_view.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            view?.findViewById<LinearLayout>(R.id.interests)?.addView(interest_view)
+            sInterests += interest + "\n"
         }
+        view?.findViewById<TextView>(R.id.synthFragTextViewInterestRes)?.text = sInterests
 
-        view?.findViewById<Button>(R.id.validate)
+        view?.findViewById<Button>(R.id.synthFragButtonValidate)
             ?.setOnClickListener { listener.onValidate(nom!!, prenom!!, interests, option!!) }
 
-        view?.findViewById<Button>(R.id.info_return)
+        view?.findViewById<Button>(R.id.synthFragButtonReturn)
             ?.setOnClickListener { requireActivity().onBackPressed() }
 
         return view
