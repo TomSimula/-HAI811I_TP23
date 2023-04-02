@@ -26,10 +26,10 @@ class InscriptionFragment : Fragment(), OnClickListener {
     private var travail: String = ""
     private var telephone: String = ""
     private var interests: MutableList<String> = mutableListOf()
-    private var option: Boolean = false
+    private var sync: Boolean = false
 
     public interface OnSubmitListener {
-        fun onSubmit(nom: String, prenom: String, interests: List<String>, option: Boolean)
+        fun onSubmit(nom: String, prenom: String, dateAnniv: String, travail: String, telephone: String, interests: List<String>, sync: Boolean)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +41,10 @@ class InscriptionFragment : Fragment(), OnClickListener {
             travail = savedInstanceState.getString("travail")!!
             telephone = savedInstanceState.getString("telephone")!!
             interests = savedInstanceState.getStringArrayList("interests")!!
-            option = savedInstanceState.getBoolean("option")
+            sync = savedInstanceState.getBoolean("sync")
         }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -96,6 +97,15 @@ class InscriptionFragment : Fragment(), OnClickListener {
         if(prenom == "") {
             prenom = (view?.findViewById<View>(R.id.inscrFragEditTextLastName) as TextView).text.toString()
         }
+        if(dateAnniv == "") {
+            dateAnniv = (view?.findViewById<View>(R.id.inscrFragEditTextBirthday) as TextView).text.toString()
+        }
+        if(travail == "") {
+            travail = (view?.findViewById<View>(R.id.inscrFragEditTextJob) as TextView).text.toString()
+        }
+        if(telephone == "") {
+            telephone = (view?.findViewById<View>(R.id.inscrFragEditTextPhone) as TextView).text.toString()
+        }
         if(interests.isEmpty()) {
             if ((view?.findViewById<View>(R.id.inscrFragCheckboxSport) as CheckBox).isChecked) {
                 interests.add("Sport")
@@ -111,9 +121,9 @@ class InscriptionFragment : Fragment(), OnClickListener {
             }
         }
 
-        option = (view?.findViewById<View>(R.id.inscrFragCheckboxSync) as CheckBox).isChecked
+        sync = (view?.findViewById<View>(R.id.inscrFragCheckboxSync) as CheckBox).isChecked
 
-        listener.onSubmit(nom, prenom, interests, option)
+        listener.onSubmit(nom, prenom, dateAnniv, travail, telephone, interests, sync)
     }
 
 }

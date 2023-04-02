@@ -14,7 +14,7 @@ class SyntheseFragment : Fragment() {
     private lateinit var listener: OnValidateListener
 
     public interface OnValidateListener {
-        fun onValidate(nom: String, prenom: String, interests: List<String>, option: Boolean)
+        fun onValidate(nom: String, prenom: String, dateAnniv: String, travail: String, telephone: String, interests: List<String>, sync: Boolean)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,14 +28,23 @@ class SyntheseFragment : Fragment() {
         var view = inflater.inflate(R.layout.fragment_synthese, container, false)
         val nom = arguments?.getString("nom")
         val prenom = arguments?.getString("prenom")
+        val dateAnniv = arguments?.getString("dateAnniv")
+        val travail = arguments?.getString("travail")
+        val telephone = arguments?.getString("telephone")
         val interests = arguments?.getStringArrayList("interests")
-        val option = arguments?.getBoolean("option")
+        val sync = arguments?.getBoolean("sync")
 
         var nomView = view?.findViewById<TextView>(R.id.synthFragTextViewLastNameRes)
         var prenomView = view?.findViewById<TextView>(R.id.synthFragTextViewFirstNameRes)
+        var dateAnnivView = view?.findViewById<TextView>(R.id.synthFragTextViewBirthdayRes)
+        var travailView = view?.findViewById<TextView>(R.id.synthFragTextViewJobRes)
+        var telephoneView = view?.findViewById<TextView>(R.id.synthFragTextViewPhoneRes)
 
         nomView?.text = nom
         prenomView?.text = prenom
+        dateAnnivView?.text = dateAnniv
+        travailView?.text = travail
+        telephoneView?.text = telephone
 
         var sInterests = ""
         for(interest in interests!!) {
@@ -44,7 +53,7 @@ class SyntheseFragment : Fragment() {
         view?.findViewById<TextView>(R.id.synthFragTextViewInterestRes)?.text = sInterests
 
         view?.findViewById<Button>(R.id.synthFragButtonValidate)
-            ?.setOnClickListener { listener.onValidate(nom!!, prenom!!, interests, option!!) }
+            ?.setOnClickListener { listener.onValidate(nom!!, prenom!!, dateAnniv!!, travail!!, telephone!!, interests, sync!!) }
 
         view?.findViewById<Button>(R.id.synthFragButtonReturn)
             ?.setOnClickListener { requireActivity().onBackPressed() }

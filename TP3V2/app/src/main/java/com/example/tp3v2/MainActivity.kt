@@ -18,15 +18,21 @@ class MainActivity : AppCompatActivity(), SyntheseFragment.OnValidateListener, I
     override fun onSubmit(
         nom: String,
         prenom: String,
+        dateAnniv: String,
+        travail: String,
+        telephone: String,
         interests: List<String>,
-        option: Boolean
+        sync: Boolean
     ) {
         val syntheseFragment = SyntheseFragment()
         val bundle = Bundle()
         bundle.putString("nom", nom)
         bundle.putString("prenom", prenom)
+        bundle.putString("dateAnniv", dateAnniv)
+        bundle.putString("travail", travail)
+        bundle.putString("telephone", telephone)
         bundle.putStringArrayList("interests", ArrayList(interests))
-        bundle.putBoolean("option", option)
+        bundle.putBoolean("sync", sync)
         syntheseFragment.arguments = bundle
 
         supportFragmentManager.beginTransaction().apply {
@@ -40,12 +46,17 @@ class MainActivity : AppCompatActivity(), SyntheseFragment.OnValidateListener, I
     override fun onValidate(
         nom: String,
         prenom: String,
+        dateAnniv: String,
+        travail: String,
+        telephone: String,
         interests: List<String>,
-        option: Boolean
+        sync: Boolean
     ) {
         var FILENAME = "informations.json"
         //encode to json
-        var json = "{\"nom\": \"$nom\", \"prenom\": \"$prenom\""
+        var json = "{\"nom\": \"$nom\", \"prenom\": \"$prenom\", " +
+                "\"dateAnniv\": \"$dateAnniv\", \"travail\": \"$travail\", " +
+                "\"telephone\": \"$telephone\""
         json += ", \"interests\": ["
         for(interest in interests) {
             json += "\"$interest\""

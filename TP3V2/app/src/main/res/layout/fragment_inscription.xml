@@ -68,12 +68,12 @@
         android:layout_height="wrap_content"
         android:text="@string/frag_job"
         android:textSize="@dimen/default_textSize"
-        app:layout_constraintBottom_toBottomOf="@+id/inscrFragEditTextSkillField"
+        app:layout_constraintBottom_toBottomOf="@+id/inscrFragEditTextJob"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/inscrFragEditTextSkillField" />
+        app:layout_constraintTop_toTopOf="@+id/inscrFragEditTextJob" />
 
     <EditText
-        android:id="@+id/inscrFragEditTextSkillField"
+        android:id="@+id/inscrFragEditTextJob"
         android:layout_width="364dp"
         android:layout_height="wrap_content"
         android:hint="@string/frag_job_hint"
@@ -99,7 +99,7 @@
         android:hint="XX XX XX XX XX"
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintStart_toEndOf="@+id/inscrFragTextViewPhone"
-        app:layout_constraintTop_toBottomOf="@+id/inscrFragEditTextSkillField" />
+        app:layout_constraintTop_toBottomOf="@+id/inscrFragEditTextJob" />
 
     <GridLayout
         android:id="@+id/inscrFragGridLayoutInterest"
