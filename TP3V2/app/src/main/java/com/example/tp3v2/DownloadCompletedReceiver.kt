@@ -17,7 +17,6 @@ class DownloadCompletedReceiver: BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         if (intent?.action == "android.intent.action.DOWNLOAD_COMPLETE"){
-            android.widget.Toast.makeText(context, "Download completed", android.widget.Toast.LENGTH_SHORT).show()
             var path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + "/liste-jeux.pdf"
 
             val filep = File(path)
@@ -47,8 +46,7 @@ class DownloadCompletedReceiver: BroadcastReceiver() {
                 Log.d("producer", producer)
 
                 val info = "Version: $version\nAuthor: $author\nTitle: $title\nCreation date: $creation_date\nProducer: $producer"
-                var view = View.inflate(context, R.layout.fragment_inscription, null)
-                view.findViewById<TextView>(R.id.inscrFragTextViewPDFInformation).text = info
+                android.widget.Toast.makeText(context, "Download completed \n + $info", android.widget.Toast.LENGTH_LONG).show()
 
             } else {
                 Log.d("DownloadService", "File does not exist")
