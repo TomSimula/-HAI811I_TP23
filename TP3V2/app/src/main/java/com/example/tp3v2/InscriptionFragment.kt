@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +14,10 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
+import androidx.core.widget.addTextChangedListener
 
 class InscriptionFragment : Fragment(), OnClickListener {
 
@@ -54,7 +57,6 @@ class InscriptionFragment : Fragment(), OnClickListener {
 
         view.findViewById<Button>(R.id.inscrFragButtonsubmit).setOnClickListener(this)
         view.findViewById<Button>(R.id.inscrFragButtonDownload).setOnClickListener(this)
-            // ask for permission to donwload
 
         return view
     }
@@ -91,39 +93,42 @@ class InscriptionFragment : Fragment(), OnClickListener {
     }
 
     private fun submit() {
-        if(nom == "") {
-            nom = (view?.findViewById<View>(R.id.inscrFragEditTextFirstName) as TextView).text.toString()
+        nom = (view?.findViewById<View>(R.id.inscrFragEditTextFirstName) as TextView).text.toString()
+
+        prenom = (view?.findViewById<View>(R.id.inscrFragEditTextLastName) as TextView).text.toString()
+        dateAnniv = (view?.findViewById<View>(R.id.inscrFragEditTextBirthday) as TextView).text.toString()
+        travail = (view?.findViewById<View>(R.id.inscrFragEditTextJob) as TextView).text.toString()
+        telephone = (view?.findViewById<View>(R.id.inscrFragEditTextPhone) as TextView).text.toString()
+
+        if ((view?.findViewById<View>(R.id.inscrFragCheckboxSport) as CheckBox).isChecked) {
+            if(!interests.contains("Sport")) interests.add("Sport")
+        } else {
+            interests.remove("Sport")
         }
-        if(prenom == "") {
-            prenom = (view?.findViewById<View>(R.id.inscrFragEditTextLastName) as TextView).text.toString()
+
+        if ((requireView().findViewById<View>(R.id.inscrFragCheckboxMusique) as CheckBox).isChecked) {
+            if(!interests.contains("Musique")) interests.add("Musique")
+        } else {
+            interests.remove("Musique")
         }
-        if(dateAnniv == "") {
-            dateAnniv = (view?.findViewById<View>(R.id.inscrFragEditTextBirthday) as TextView).text.toString()
+
+        if ((requireView().findViewById<View>(R.id.inscrFragCheckboxLecture) as CheckBox).isChecked) {
+            if(!interests.contains("Lecture")) interests.add("Lecture")
+        } else {
+            interests.remove("Lecture")
         }
-        if(travail == "") {
-            travail = (view?.findViewById<View>(R.id.inscrFragEditTextJob) as TextView).text.toString()
-        }
-        if(telephone == "") {
-            telephone = (view?.findViewById<View>(R.id.inscrFragEditTextPhone) as TextView).text.toString()
-        }
-        if(interests.isEmpty()) {
-            if ((view?.findViewById<View>(R.id.inscrFragCheckboxSport) as CheckBox).isChecked) {
-                interests.add("Sport")
-            }
-            if ((requireView().findViewById<View>(R.id.inscrFragCheckboxMusique) as CheckBox).isChecked) {
-                interests.add("Cinema")
-            }
-            if ((requireView().findViewById<View>(R.id.inscrFragCheckboxLecture) as CheckBox).isChecked) {
-                interests.add("Musique")
-            }
-            if ((requireView().findViewById<View>(R.id.inscrFragCheckboxSerie) as CheckBox).isChecked) {
-                interests.add("Jeux vidéo")
-            }
+
+        if ((requireView().findViewById<View>(R.id.inscrFragCheckboxSerie) as CheckBox).isChecked) {
+            if(!interests.contains("Séries")) interests.add("Séries")
+        } else {
+            interests.remove("Séries")
         }
 
         sync = (view?.findViewById<View>(R.id.inscrFragCheckboxSync) as CheckBox).isChecked
 
         listener.onSubmit(nom, prenom, dateAnniv, travail, telephone, interests, sync)
     }
+
+
 
 }
