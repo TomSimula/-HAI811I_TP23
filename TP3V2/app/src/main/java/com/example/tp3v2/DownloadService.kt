@@ -32,16 +32,6 @@ class DownloadService : IntentService("DownloadService"){
                 .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                 .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "liste-jeux.pdf")
             downloadManager.enqueue(request)
-            //notify user when download is completed
-            var receiver = object : BroadcastReceiver() {
-                override fun onReceive(context: Context?, intent: Intent?) {
-                    android.widget.Toast.makeText(
-                        context,
-                        "Download completed",
-                        android.widget.Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
         }
     }
 
