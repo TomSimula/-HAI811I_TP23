@@ -13,4 +13,5 @@
     <string name="return_button">Retour</string>
     <string name="validate_button">Valider</string>
     <string name="download_button">Télécharger</string>
+    <string name="load_button">Charger infos</string>
 </resources>

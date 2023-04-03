@@ -3,6 +3,10 @@ package com.example.tp3v2
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import org.json.JSONArray
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity(), SyntheseFragment.OnValidateListener, InscriptionFragment.OnSubmitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,22 +57,33 @@ class MainActivity : AppCompatActivity(), SyntheseFragment.OnValidateListener, I
         sync: Boolean
     ) {
         var FILENAME = "informations.json"
-        //encode to json
-        var json = "{\"nom\": \"$nom\", \"prenom\": \"$prenom\", " +
-                "\"dateAnniv\": \"$dateAnniv\", \"travail\": \"$travail\", " +
-                "\"telephone\": \"$telephone\""
-        json += ", \"interests\": ["
-        for(interest in interests) {
-            json += "\"$interest\""
-            if(interest != interests.last()) json += ", "
-        }
-        json += "]}"
 
+        var json = JSONObject()
+        json.put("nom", nom)
+        json.put("prenom", prenom)
+        json.put("dateAnniv", dateAnniv)
+        json.put("travail", travail)
+        json.put("telephone", telephone)
+
+        var array = JSONArray()
+        for (interest in interests) {
+            array.put(interest)
+        }
+
+        json.put("interests", array)
 
 
         //write to file
         openFileOutput(FILENAME, Context.MODE_PRIVATE).use {
-            it.write(json.toByteArray())
+            it.write(json.toString().toByteArray())
         }
+
+
+        val file = getFileStreamPath(FILENAME)
+        if(file.exists()) {
+            Toast.makeText(this, "Informations enregistrées", Toast.LENGTH_SHORT).show()
+            Log.d("infos", file.readText())
+        }
+
     }
 }
